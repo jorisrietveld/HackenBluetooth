@@ -1,78 +1,42 @@
 # Bluetooth passive sniffing:
-## Definitions:
-#### General
-- GAP	Genaric Access Profile
-- GATT	Generic Attribute Profile
-- UUID	Universional Unique Identifiere
-- PDU	(Advertising Channel) Packet Data Unit
-- L2CAP Logic Link Control and Adaptation Protocol.
-- LE LL Bluetooth Low Energy Link Layer.
--
-## L2CAP ATT
-- MTU Maximum Transmission Unit
-#### Authentication
- - OOB Out Of Band
-> OOB, or Out-of-Band, uses an external means of communication to exchange some information used in the pairing process. The OOB media could be any other wireless communication standard which can carry the corresponding information for pairing, like NFC or QRCode.
- - BF Bonding Flags
- > Bonding is the exchange of long-term keys after pairing occurs, and storing those keys for later use—it is the creation of permanent security between devices. Pairing is the mechanism that allows bonding to occur.
 
-#### GATT
-
-<hr>
-
-## Wireshark filters
-
-|                                               Filter |                                                              description |    Type |
-|-----------------------------------------------------:|-------------------------------------------------------------------------:|--------:|
-|                   btcommon.eir_ad.entry.type == 0xff |                                             Filter on device type Iphone | Include |
-|                   btcommon.eir_ad.entry.type == 0x09 |                                       Filter on device type Smart Shaver | Include |
-| btcommon.eir_ad.entry.device_name == "Philips S7920" |                                            Filter on device name Philips | Include |
-|              btle.advertising_header.pdu_type == 0x3 |                                  Filter on Packet data type Scan Request | Include |
-|              btle.advertising_header.pdu_type == 0x2 | Filter on Packet data type: non-connectable undirected advertising event | Include |
-|              btle.advertising_header.pdu_type == 0x0 |     Filter on Packet data type: connectable undirected advertising event | Include |
-|              btle.advertising_header.pdu_type == 0x1 |       Filter on Packet data type: connectable directed advertising event | Include |
-|              btle.advertising_header.pdu_type == 0x4 |                                Filter on Packet data type: Scan Response | Include |
-|              btle.advertising_header.pdu_type == 0x5 |                         Filter on Packet data type: _Connection Request_ | Include |
-|              btle.advertising_header.pdu_type == 0x6 |        Filter on Packet data type:scannable undirected advertising event | Include |
-|                                btl2cap.cid == 0x0004 |                               Filter on Channel 4, ATT Protocol commands | Include |
-|                                btl2cap.cid == 0x0006 |                           Filter on channel 6, Security Manager Protocol | Include |
-|             btle.master_bd_addr == 49:cc:e3:fe:25:b4 |            Filter on paired communication where the Iphone is the master | Include |
-|              btle.slave_bd_addr == f5:44:08:c4:50:3a |       Filter on paired communication where the smart shaver is the slave | Include |
-|                                              btl2cap |            Search for Logic Link Control and Adaptation Protocol packets | Include |
-|                                                      |                                                                          |         |
-
+# Table Of Contents
+ - [Bluetooth protocol definitions](Definitions.md)
+ - []()
 
 Notes:
+
 ### Registered UUID
-- Philips Lighting B.V.     0xFE0F
-- Philips Lighting B.V.     0xFE4B
-- Apple, Inc                0xFE13
-- Apple, Inc                0xFE25
-- Apple, Inc                0xFE8A
-- Apple, Inc                0xFE8B
-- Apple, Inc                0xFEC7 <-> 0xFED4
+
+- Philips Lighting B.V. 0xFE0F
+- Philips Lighting B.V. 0xFE4B
+- Apple, Inc 0xFE13
+- Apple, Inc 0xFE25
+- Apple, Inc 0xFE8A
+- Apple, Inc 0xFE8B
+- Apple, Inc 0xFEC7 <-> 0xFED4
 
 ### Link Layer - Device Address
-To generate a resolvable private address, the device must have either the
-Local Identity Resolving Key (IRK) or the Peer Identity Resolving Key (IRK).
-The resolvable private address shall be generated with the IRK and a randomly
-generated 24-bit number. The random number is known as prand and shall
-meet the following requirements:
-• The two most significant bits of prand shall be equal to 0 and 1 as shown in
-Figure 1.5
-• All bits of the random part of prand shall not be equal to 0
-• All bits of the random part of prand shall not be equal to 1
-The format of the resolvable private address is shown in Figure 1.5.
+
+To generate a resolvable private address, the device must have either
+the Local Identity Resolving Key (IRK) or the Peer Identity Resolving
+Key (IRK). The resolvable private address shall be generated with the
+IRK and a randomly generated 24-bit number. The random number is known
+as prand and shall meet the following requirements: • The two most
+significant bits of prand shall be equal to 0 and 1 as shown in Figure
+1.5 • All bits of the random part of prand shall not be equal to 0 • All
+bits of the random part of prand shall not be equal to 1 The format of
+the resolvable private address is shown in Figure 1.5.
 
 
 ### Link Layer Controll Procedures
 
 | Opcode |        Controll PDU name |                              Description |
 |-------:|-------------------------:|-----------------------------------------:|
-|   0x00 | LL_CONNECTION_UPDATE_REQ |             Update Connection Intervals |
+|   0x00 | LL_CONNECTION_UPDATE_REQ |              Update Connection Intervals |
 |   0X01 |       LL_CHANNEL_MAP_REQ |                      Update Channel Maps |
-|   0X02 |         LL_TERMINATE_IND |               Disconnect the connection |
-|   0X03 |               LL_ENC_REQ |                      Encryption Request |
+|   0X02 |         LL_TERMINATE_IND |                Disconnect the connection |
+|   0X03 |               LL_ENC_REQ |                       Encryption Request |
 |   0X04 |               LL_ENC_REQ |                      Encryption Response |
 |   0x05 |         LL_START_ENC_REQ | 3 way Handshake  for Starting Encryption |
 |   0x06 |         LL_START_ENC_RSP | 3 way Handshake  for Starting Encryption |
@@ -85,17 +49,20 @@ The format of the resolvable private address is shown in Figure 1.5.
 |   0x0D |            LL_REJECT_IND |                       Reject Control PDU |
 
 # Gathered Information :key:
+
 ### Connection Link Layer Data
- - Access Address: 0x50657b27
- - CRC Init: 0x9bc31e
- - Window Size: 3 (3.75 msec)
- - Window Offset: 4 (5 msec)
- - Interval: 24 (30 msec)
- - Latency: 0
- - Timeout: 72 (90 msec)
- - Channel Map: ffffffff1f
-    ```
-       .... ...1 = RF Channel 1 (2404 MHz - Data - 0): True
+
+- Access Address: 0x50657b27
+- CRC Init: 0x9bc31e
+- Window Size: 3 (3.75 msec)
+- Window Offset: 4 (5 msec)
+- Interval: 24 (30 msec)
+- Latency: 0
+- Timeout: 72 (90 msec)
+- Channel Map: ffffffff1f
+
+  ```
+     .... ...1 = RF Channel 1 (2404 MHz - Data - 0): True
        .... ..1. = RF Channel 2 (2406 MHz - Data - 1): True
        .... .1.. = RF Channel 3 (2408 MHz - Data - 2): True
        .... 1... = RF Channel 4 (2410 MHz - Data - 3): True
@@ -135,60 +102,14 @@ The format of the resolvable private address is shown in Figure 1.5.
        ..0. .... = RF Channel 0 (2402 MHz - Reserved for Advertising - 37): False
        .0.. .... = RF Channel 12 (2426 MHz - Reserved for Advertising - 38): False
        0... .... = RF Channel 39 (2480 MHz - Reserved for Advertising - 39): False
-   ```
- - Hop: 9
- - Sleep Clock Accuracy: 31 ppm to 50 ppm (5)
+  ```
 
-### Iphone:
- - __Bluetooth Low Energy Version Number:__ 4.2 (0x08)
- - __Bluetooth Low Energy Chipset Company ID:__ Broadcom Corporation (0x0f)
- - __Bluetooth Low Energy Subversion nummer:__ 0x6607
- - __Feature Set:__
-    ```
-    .... ...1 = LE Encryption: True
-    .... ..0. = Connection Parameters Request Procedure: False
-    .... .1.. = Extended Reject Indication: True
-    .... 1... = Slave Initiated Features Exchange: True
-    ...1 .... = LE Ping: True
-    ..0. .... = LE Data Packet Length Extension: False
-    .0.. .... = LL Privacy: False
-    0... .... = Extended Scanner Filter Policies: False
-    .... ...0 = LE 2M PHY: False
-    .... ..0. = Stable Modulation Index - Transmitter: False
-    .... .0.. = Stable Modulation Index - Receiver: False
-    .... 0... = LE Coded PHY: False
-    ...0 .... = LE Extended Advertising: False
-    ..0. .... = LE Periodic Advertising: False
-    .0.. .... = Channel Selection Algorithm #2: False
-    0... .... = LE Power Class 1: False
-    .... ...0 = Minimum Number of Used Channels Procedure: False
-    ```
+- Hop: 9
+- Sleep Clock Accuracy: 31 ppm to 50 ppm (5)
 
-### Smart Shaver
- - __Bluetooth Low Energy Version Number:__ 4.1 (0x07)
- - __Bluetooth Low Energy Chipset Company ID:__ Cambridge Silicon Radio (0x0a)
- - __Bluetooth Low Energy Subversion nummer:__ 0x0499
- - Feature Set:
-    ```
-           .... ...1 = LE Encryption: True
-           .... ..0. = Connection Parameters Request Procedure: False
-           .... .0.. = Extended Reject Indication: False
-           .... 0... = Slave Initiated Features Exchange: False
-           ...0 .... = LE Ping: False
-           ..0. .... = LE Data Packet Length Extension: False
-           .0.. .... = LL Privacy: False
-           0... .... = Extended Scanner Filter Policies: False
-           .... ...0 = LE 2M PHY: False
-           .... ..0. = Stable Modulation Index - Transmitter: False
-           .... .0.. = Stable Modulation Index - Receiver: False
-           .... 0... = LE Coded PHY: False
-           ...0 .... = LE Extended Advertising: False
-           ..0. .... = LE Periodic Advertising: False
-           .0.. .... = Channel Selection Algorithm #2: False
-           0... .... = LE Power Class 1: False
-           .... ...0 = Minimum Number of Used Channels Procedure: False
-    ```
+
 ## Error:
+
 ```
 Frame 30103: 39 bytes on wire (312 bits), 39 bytes captured (312 bits) on interface 1
 PPI version 0, 24 bytes
@@ -267,18 +188,28 @@ Bluetooth Low Energy Link Layer
         [Group: Malformed]
     <Malformed Packet>
 ```
-# Sources 
+
+# Sources
 
 ## Videos
-- An playlist about almost all Bluetooth Low enery consepts. [link](https://www.youtube.com/watch?v=QBI3zf-MhcA&list=PLSdxNjcHc0u9PdQSd3l3-gDJGzJ_eB50f)
+
+- An playlist about almost all Bluetooth Low enery consepts.
+  [link](https://www.youtube.com/watch?v=QBI3zf-MhcA&list=PLSdxNjcHc0u9PdQSd3l3-gDJGzJ_eB50f)
 
 ## Sites
-1. An list of all uuids [link](https://www.bluetooth.com/specifications/assigned-numbers/16-bit-uuids-for-members)
-2. Bluetooth paring process [link](https://blog.bluetooth.com/bluetooth-pairing-part-4)
+
+1. An list of all uuids
+   [link](https://www.bluetooth.com/specifications/assigned-numbers/16-bit-uuids-for-members)
+2. Bluetooth paring process
+   [link](https://blog.bluetooth.com/bluetooth-pairing-part-4)
 3. 
+
 ## Books
-1. Bluetooth Core Specification 4.2 [link](https://www.bluetooth.org/DocMan/handlers/DownloadDoc.ashx?doc_id=286439)
-    - Link Layer Info
-        - Page 2578, info about the device address.
-    - FIDO Authentication [link](https://fidoalliance.org/wp-content/uploads/Bluetooth__NFC_Transport_for_FIDO_U2F.pdf)
+
+1. Bluetooth Core Specification 4.2
+   [link](https://www.bluetooth.org/DocMan/handlers/DownloadDoc.ashx?doc_id=286439)
+   - Link Layer Info
+     - Page 2578, info about the device address.
+   - FIDO Authentication
+     [link](https://fidoalliance.org/wp-content/uploads/Bluetooth__NFC_Transport_for_FIDO_U2F.pdf)
 
