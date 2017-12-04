@@ -69,10 +69,10 @@ The format of the resolvable private address is shown in Figure 1.5.
 
 | Opcode |        Controll PDU name |                              Description |
 |-------:|-------------------------:|-----------------------------------------:|
-|   0x00 | LL_CONNECTION_UPDATE_REQ |             Update Connection  Intervals |
+|   0x00 | LL_CONNECTION_UPDATE_REQ |             Update Connection Intervals |
 |   0X01 |       LL_CHANNEL_MAP_REQ |                      Update Channel Maps |
-|   0X02 |         LL_TERMINATE_IND |               Disconnect  the connection |
-|   0X03 |               LL_ENC_REQ |                      Encryption  Request |
+|   0X02 |         LL_TERMINATE_IND |               Disconnect the connection |
+|   0X03 |               LL_ENC_REQ |                      Encryption Request |
 |   0X04 |               LL_ENC_REQ |                      Encryption Response |
 |   0x05 |         LL_START_ENC_REQ | 3 way Handshake  for Starting Encryption |
 |   0x06 |         LL_START_ENC_RSP | 3 way Handshake  for Starting Encryption |
