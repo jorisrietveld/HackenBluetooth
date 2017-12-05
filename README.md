@@ -1,3 +1,4 @@
+![](resources/smartshaver.png)
 # Bluetooth passive sniffing:
 This repository contains backgrodifferentrmation and some of the findings of INF2B's
 research into the security of the Smart Shaver 7000.
@@ -8,6 +9,9 @@ research into the security of the Smart Shaver 7000.
  - [Gathered Smart Shaver Information](Smartshaver_Information.md)
  - [Wireshark Information](WiresharkFilters.md)
  - [Bluetooth Link Layer Information](BluetoothLinkLayer_Information.md)
+
+# Wireshark Captures :
+ - 
 
 Notes:
 
