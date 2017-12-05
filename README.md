@@ -11,7 +11,8 @@ research into the security of the Smart Shaver 7000.
  - [Bluetooth Link Layer Information](BluetoothLinkLayer_Information.md)
 
 # Wireshark Captures :
- - 
+ - [This file contains authentication and unecrypted packages - first](Captures/Joris/FirstCapture.pcapng)
+ - [This contains authentication and encrypted packages - 05_12_2017](Captures/Joris/Capture_05_12_2017.pcapng)
 
 Notes:
 
