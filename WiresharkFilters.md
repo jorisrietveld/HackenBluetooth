@@ -17,8 +17,8 @@
 |             btle.master_bd_addr == 49:cc:e3:fe:25:b4 |            Filter on paired communication where the Iphone is the master | Include |
 |              btle.slave_bd_addr == f5:44:08:c4:50:3a |       Filter on paired communication where the smart shaver is the slave | Include |
 |                                              btl2cap |            Search for Logic Link Control and Adaptation Protocol packets | Include |
-|                         eth.src == f5:44:08:c4:50:3a |                                                                          |         |
+|                         eth.src == f5:44:08:c4:50:3a |                                           Filter packets on mac address. |         |
 |        btle.advertising_address == f5:44:08:c4:50:3a |                                           Filter packets on mac address. |         |
-|                                                      |                                                                          |         |
-|                                                      |                                                                          |         |
+|                                          pkt_comment |      This filter gets all packets that are commented by the researchers. |         |
+|                              pkt_comment contains "" |                          Search inside comments using the double quotes. |         |
 
