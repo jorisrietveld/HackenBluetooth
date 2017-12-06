@@ -118,11 +118,15 @@ This are some of the sources we used for sniffing the Bluetooth connection.
 
 - An playlist containing a lage quantity of information about Bluetooth Low enery. It includes information
   about the physical layer of the bluetooth connection to all the application layers. [Click here to view :arrow_forward:](https://www.youtube.com/watch?v=QBI3zf-MhcA&list=PLSdxNjcHc0u9PdQSd3l3-gDJGzJ_eB50f)
-
+https://www.youtube.com/watch?v=G08fh5Sa7TU&t=95s
 ## Sites
 
 1. An list of all the official bluetooth registered UUID (Universal Unique Identification) codes. [Click here to go to the site. :link:](https://www.bluetooth.com/specifications/assigned-numbers/16-bit-uuids-for-members)
 2. Information about the Bluetooth paring process [Click here to go to the site. :link:](https://blog.bluetooth.com/bluetooth-pairing-part-4)
+3. Information about the Bluetooth autentication process [Click here to go to the site. :link:](http://eecatalog.com/IoT/2014/08/13/increasing-wireless-security-with-bluetooth-low-energy/)
+https://www.usenix.org/system/files/conference/woot13/woot13-ryan.pdf
+https://eprint.iacr.org/2013/309.pdf
+
 
 ## Books
 
