@@ -77,3 +77,6 @@
 | 0x007b | 180f | Battery Service                                                               |
 | 0x007c | 2803 | GATT Characteristic Declaration                                               |
 | 0x007d | 2a19 | Battery Level                                                                 |
+
+
+Usefull link: [Bluetooth low energy Characteristics](https://devzone.nordicsemi.com/tutorials/17/)
