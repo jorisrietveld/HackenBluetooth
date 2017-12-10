@@ -407,3 +407,7 @@ Confirm Value: 7b9759f3fa798432c5489e4a06dd51d0
 Confirm Value: cee0b00d5d66a0baa1bfe26483786b43
 Random Value: efca4e586063f55f8b921cf8c65259f4
 Random Value: e91b425eaed28417067368268f447892
+
+pass key entry
+numeric comparison
+http://francois.janssens.free.fr/Elexo/Frontline/R&D/Analyse/chiffrement/LE-Security-(with-secure-connections).pdf
