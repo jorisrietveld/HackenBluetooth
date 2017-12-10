@@ -136,3 +136,7 @@ https://eprint.iacr.org/2013/309.pdf
 2. FIDO Authentication
      [Click here to open the book :book:](https://fidoalliance.org/wp-content/uploads/Bluetooth__NFC_Transport_for_FIDO_U2F.pdf)
 
+
+notes:
+- http://www.farnell.com/datasheets/1391958.pdf
+- http://electronix.ru/forum/index.php?act=Attach&type=post&id=81945
