@@ -9,11 +9,28 @@ research into the security of the Smart Shaver 7000.
  - [Gathered Smart Shaver Information](Smartshaver_Information.md)
  - [Wireshark Information](WiresharkFilters.md)
  - [Bluetooth Link Layer Information](BluetoothLinkLayer_Information.md)
+ - [Decrypting Errors](DecryptingErrors.md)
+ - [Information about the data that is being transmitted](DataTransmittion.md)
+ - [ATT Information](ATT_Information.md)
 
 # Wireshark Captures :
 ### :information_source: Tip use filter that searches for packets with comments
- - [This file contains authentication and unecrypted packages - first](Captures/Joris/FirstCapture.pcapng)
- - [This contains authentication and encrypted packages - 05_12_2017](Captures/Joris/Capture_05_12_2017.pcapng)
+ - [2017 11 24](Captures/Raw/Capture_2017_11_24.pcapng)
+ - [2017 12 04](Captures/Raw/Capture_2017_12_04.pcapng)
+ - [2017 12 05](Captures/Raw/Capture_2017_12_05.pcapng)
+ - [2017 12 06](Captures/Raw/Capture_2017_12_06.pcapng)
+ - [2017 12 08, collected by Arjan](Captures/Raw/Capture_2017_12_08_Arjan_0.pcapng)
+ - [2017 12 08, collected by Arjan](Captures/Raw/Capture_2017_12_08_Arjan_1.pcapng)
+ - [2017 12 08, collected by Daan](Captures/Raw/Capture_2017_12_08_Daan_0.pcapng)
+ - [2017 12 08, collected by Daan](Captures/Raw/Capture_2017_12_08_Daan_1.pcapng)
+### Filtered Authentication Captures
+ - [Authentication Packets from 2017 11 24](Captures/Filtered/AuthenticationAndPairing/Filtered_Auth_And_Paired_2017_11_24.pcapng)
+ - [Authentication Packets from 2017 12 05](Captures/Filtered/AuthenticationAndPairing/Filtered_Auth_And_Paired_2017_12_05.pcapng)
+ - [Authentication Packets from 2017 12 06](Captures/Filtered/AuthenticationAndPairing/Filtered_Auth_And_Paired_2017_12_06.pcapng)
+ - [Authentication Packets from 2017 12 08 Arjan](Captures/Filtered/AuthenticationAndPairing/Filtered_Auth_And_Paired_2017_12_08_Arjan_0.pcapng)
+ - [Authentication Packets from 2017 12 08 Arjan](Captures/Filtered/AuthenticationAndPairing/Filtered_Auth_And_Paired_2017_12_08_Arjan_1.pcapng)
+ - [Authentication Packets from 2017 12 08 Daan](Captures/Filtered/AuthenticationAndPairing/Filtered_Auth_And_Paired_2017_12_08_Daan_0.pcapng)
+ - [Authentication Packets from 2017 12 08 Daan](Captures/Filtered/AuthenticationAndPairing/Filtered_Auth_And_Paired_2017_12_08_Daan_1.pcapng)
 
 Notes:
 
